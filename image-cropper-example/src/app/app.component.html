@@ -1,0 +1,9 @@
+<ly-img-cropper [config]="myConfig" [(scale)]="scale" (ready)="onReady($event)" (minScale)="minScale = $event"
+  (cleaned)="ready = false" (cropped)="onCropped($event)" (loaded)="onLoaded($event)" (error)="onError($event)">
+  <span>Drag and drop image</span>
+</ly-img-cropper>
+
+<ng-container *ngIf="ready">
+  <ly-slider [thumbVisible]="false" [min]="minScale" [max]="1" [(ngModel)]="scale" (input)="scale = $event.value"
+    step="0.000001"></ly-slider>
+</ng-container>
