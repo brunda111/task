@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header text-center">
+      <strong> Image Cropping using Angular</strong>
+    </div>
+    <div class="card-body">
+      <input type="file" (change)="fileChangeEvent($event)" />
+      <br />
+      <br />
+
+
+      <br />
+      <br />
+      <div class=" row" style="margin-top: 10px;">
+        <div class="text-center col-md-8">
+          <h5>Crop Image</h5>
+          <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" [aspectRatio]="4 / 4"
+            [resizeToWidth]="256" format="png" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()"
+            (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()"></image-cropper>
+        </div>
+        <div class="text-center col-md-4">
+          <h5>Preview</h5>
+          <img [src]="croppedImage" />
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
